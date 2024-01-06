@@ -43,7 +43,8 @@ return require("packer").startup(function(use)
 
     -- very cool colorscheme (japan!1!)
     use("rebelot/kanagawa.nvim")
-
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use "EdenEast/nightfox.nvim"
     -- harpooneagen
     use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
     use {

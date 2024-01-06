@@ -23,9 +23,11 @@ opt.updatetime = 50
 
 opt.termguicolors = true
 
+opt.colorcolumn="80"
 -- fix orgmode links
 opt.shellslash = true
 opt.conceallevel = 2
 opt.concealcursor = 'nc'
 
 g.mapleader = " "
+
