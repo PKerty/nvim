@@ -139,7 +139,26 @@ lspconfig.rust_analyzer.setup {
     "rustup", "run", "stable", "rust-analyzer"
   }
 }
+--[[
+lspconfig.solidity_ls.setup({
+   	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { "solidity-ls", "--stdio" },
+	filetypes = { "solidity" },
+	root_dir = lspconfig.util.find_git_ancestor,
+	single_file_support = true,
 
+})
+
+lspconfig.solang.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "solang", "language-server", "--target", "evm" },
+    filetypes = { "solidity" },
+	root_dir = lspconfig.util.find_git_ancestor,
+	single_file_support = true,
+})
+]]--
 lspconfig["solidity"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -148,6 +167,7 @@ lspconfig["solidity"].setup({
 	root_dir = lspconfig.util.find_git_ancestor,
 	single_file_support = true,
 })
+
 
 
 vim.diagnostic.config({

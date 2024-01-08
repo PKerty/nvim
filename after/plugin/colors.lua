@@ -15,8 +15,8 @@ vim.cmd('hi! TelescopeTitle guibg=none ctermbg=none')
 -- hex colors highlighting:
 require('colorizer').setup()
 ]]--
-function ColorSetUp()
-require('kanagawa').setup({
+function KanagawaSetUp()
+    require('kanagawa').setup({
         transparent=true;
     })
     vim.cmd("colorscheme kanagawa-wave")
@@ -31,10 +31,11 @@ function RoseSetUp()
     require('rose-pine').setup({
         variant='moon',
         dark_variant='moon',
-        disable_background=true,
+        disable_background=false,
         disable_float_background=false,
+
     })
-            vim.cmd('colorscheme rose-pine')
+    vim.cmd('colorscheme rose-pine')
     -- remove line number bg
     vim.cmd('hi! LineNr guibg=none ctermbg=none')
     -- remove telescope bg
@@ -60,10 +61,75 @@ function FoxSetUp()
                 },
             },
             transparent = false
+        },
+        styles = {
+            keywords='bold'
         }
     })
     vim.cmd('colorscheme carbonfox')
--- remove line number bg
+    -- remove line number bg
+    vim.cmd('hi! LineNr guibg=none ctermbg=none')
+    -- remove telescope bg
+    vim.cmd('hi! TelescopeBorder guibg=none ctermbg=none')
+    vim.cmd('hi! TelescopeTitle guibg=none ctermbg=none')
+
+   -- require('colorizer').setup()
+end
+function DarkerSetup()
+
+    require('onedark').setup  {
+        -- Main options --
+        style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        transparent = true,  -- Show/hide background
+        term_colors = true,
+        code_style = {
+            comments = 'none',
+            keywords = 'bold',
+            functions = 'none',
+            strings = 'none',
+            variables = 'italic'
+        },
+
+    }
+    vim.cmd('colorscheme onedark')
+    -- remove line number bg
+    vim.cmd('hi! LineNr guibg=none ctermbg=none')
+    -- remove telescope bg
+    vim.cmd('hi! TelescopeBorder guibg=none ctermbg=none')
+    vim.cmd('hi! TelescopeTitle guibg=none ctermbg=none')
+
+    require('colorizer').setup()
+
+end
+
+function NordicSetUp()
+
+    require('nordic').setup({
+        bold_keywords = true,
+        reduced_blue = true,
+        cursorline = {
+            -- Bold font in cursorline.
+            bold = true,
+            -- Bold cursorline number.
+            bold_number = true,
+            -- Avialable styles: 'dark', 'light'.
+            theme = 'dark',
+            -- Blending the cursorline bg with the buffer bg.
+            blend = 0.85,
+            noice = {
+                -- Available styles: `classic`, `flat`.
+                style = 'flat',
+            },
+            telescope = {
+                -- Available styles: `classic`, `flat`.
+                style = 'flat',
+            },
+        },
+
+    })
+
+    vim.cmd('colorscheme nordic');
+    -- remove line number bg
     vim.cmd('hi! LineNr guibg=none ctermbg=none')
     -- remove telescope bg
     vim.cmd('hi! TelescopeBorder guibg=none ctermbg=none')
@@ -72,4 +138,5 @@ function FoxSetUp()
     require('colorizer').setup()
 end
 
-FoxSetUp()
+
+NordicSetUp()
