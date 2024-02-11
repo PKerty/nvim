@@ -138,5 +138,4 @@ function NordicSetUp()
     require('colorizer').setup()
 end
 
-
 NordicSetUp()
