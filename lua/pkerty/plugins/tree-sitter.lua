@@ -43,6 +43,7 @@ return {
 					"gitignore",
 					"query",
 					"java",
+					"python",
 				},
 				incremental_selection = {
 					enable = true,
