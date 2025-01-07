@@ -48,7 +48,7 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -141,6 +141,16 @@ return {
 					},
 				},
 			},
+		})
+
+		lspconfig["jsonls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["ocamllsp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }

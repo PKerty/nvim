@@ -8,6 +8,7 @@ opt.relativenumber = true
 opt.cursorline = true
 
 opt.tabstop = 4
+
 opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
@@ -23,8 +24,9 @@ opt.updatetime = 50
 
 opt.termguicolors = true
 
-opt.colorcolumn="80"
+opt.colorcolumn = "80"
 -- fix orgmode links
 
 g.mapleader = " "
 
+vim.api.nvim_set_option_value("clipboard", "unnamedplus", {})
