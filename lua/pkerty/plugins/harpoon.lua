@@ -12,7 +12,7 @@ return {
 		keymap.set("n", "<leader>a", function()
 			harpoon:list():append()
 		end)
-		keymap.set("n", "<leader>+", function()
+		keymap.set("n", "<leader>u", function()
 			harpoon:list():remove()
 		end)
 		keymap.set("n", "<C-e>", function()

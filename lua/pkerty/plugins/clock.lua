@@ -2,7 +2,7 @@ return {
 	"registerGen/clock.nvim",
 	config = function()
 		require("clock").setup({
-			auto_start = true,
+			auto_start = false,
 			float = {
 				border = "double",
 				col_offset = 1,
