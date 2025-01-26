@@ -12,8 +12,6 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local keymap = vim.keymap -- for conciseness
-
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
 			vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
@@ -28,6 +26,7 @@ return {
 			vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 			vim.keymap.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 			vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+			vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, opts)
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
