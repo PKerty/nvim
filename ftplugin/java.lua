@@ -10,12 +10,23 @@ vim.list_extend(bundles, vim.split(vim.fn.glob("/home/kerty/.local/share/nvim/ma
 local config = {
 	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/jdtls") },
 	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
-	init_options = {
-		bundles = bundles,
-	},
+	-- init_options = {
+	--     bundles = bundles,
+	-- },
+	-- settings = {
+	-- 	java = {
+	-- 		project = {
+	-- 			sourcePaths = {
+	-- 				-- "src/main/java",
+	-- 				"/home/kerty/work/Train-Station---POD/api/target/generated-sources/protobuf/java",
+	-- 				"/home/kerty/work/Train-Station---POD/api/target/generated-sources/protobuf/grpc-java",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	on_attach = function(client, bufnr)
 		jdtls.setup_dap({ hotcodereplace = "auto" })
-
+		local bufopts = { noremap = true, silent = true, buffer = bufnr }
 		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 		vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
 		vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>")
@@ -28,6 +39,7 @@ local config = {
 		vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 		vim.keymap.set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+		vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, bufopts)
 	end,
 }
 jdtls.start_or_attach(config)

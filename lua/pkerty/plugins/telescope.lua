@@ -18,9 +18,8 @@ return {
 				},
 			},
 		})
-
 		telescope.load_extension("fzf")
-
+		telescope.load_extension("file_browser")
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 		keymap.set("n", "<leader>pf", builtin.find_files, {})
@@ -28,6 +27,6 @@ return {
 		keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end)
-		keymap.set("n", "<leader>fb", builtin.buffers, {})
+		keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<CR>", {})
 	end,
 }
